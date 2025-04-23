@@ -1,0 +1,23 @@
+.success {
+  background-color: rgb(160, 255, 160);
+}
+
+.caret {
+  right: unset !important;
+  left: 0;
+}
+
+.right {
+  padding-right: 10px;
+}
+
+nav {
+  position: fixed;
+  top:0;
+  height: 75px !important;
+  z-index: 999;
+}
+
+.dashboards {
+  margin-top: 70px
+}

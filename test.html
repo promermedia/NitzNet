@@ -1,0 +1,71 @@
+<script>
+  addEventListener(
+    "JqueryLoaded",
+    function (e) {
+      setTimeout(function () {
+        fetch("https://www.elhashoresh.com/api/Events-DS-Bind/getAllPrices")
+          .then((res) => {
+            return res.json();
+          })
+          .then((res) => {
+            
+            var sems = res.Table[0];
+            var galas = res.Table[1];
+            document.querySelector("#gala-price-reg").innerText = galas.adult;
+            document.querySelector("#gala-price-couple").innerText =
+              galas.couple;
+            document.querySelector("#gala-price-student").innerText =
+              galas.studentPart;
+            document.querySelector("#seminar-price-reg").innerText = sems.adult;
+            document.querySelector("#seminar-price-student-part").innerText =
+              sems.studentPart;
+            document.querySelector("#seminar-price-student-full").innerText =
+              sems.studentFull;
+            document.querySelector("#seminar-price-children").innerText =
+              sems.children;
+            document.querySelector("#gala-price-reg-fr").innerText =
+              galas.adult;
+            document.querySelector("#gala-price-couple-fr").innerText =
+              galas.couple;
+            document.querySelector("#gala-price-student-fr").innerText =
+              galas.studentPart;
+            document.querySelector("#seminar-price-reg-fr").innerText =
+              sems.adult;
+            document.querySelector("#seminar-price-student-part-fr").innerText =
+              sems.studentPart;
+            document.querySelector("#seminar-price-student-full-fr").innerText =
+              sems.studentFull;
+            document.querySelector("#seminar-price-children-fr").innerText =
+              sems.children;
+            document.querySelector("#seminar-teens-price-reg").innerText =
+              semsTeens.adult;
+            document.querySelector("#seminar-teens-price-student").innerText =
+              semsTeens.studentFull;
+            document.querySelector("#seminar-teens-price-reg-fr").innerText =
+              semsTeens.adult;
+            document.querySelector(
+              "#seminar-teens-price-student-fr"
+            ).innerText = semsTeens.studentPart;
+
+            if (
+              res.Table[3] &&
+              res.Table[3].event_type.toLowerCase().includes("gala")
+            ) {
+              $(".seminar-price").hide();
+              $(".seminar-teens-price").hide();
+            } else if (
+              res.Table[3] &&
+              res.Table[3].event_type.toLowerCase().includes("young")
+            ) {
+              $(".seminar-price").hide();
+              $(".gala-price").hide();
+            } else {
+              $(".seminar-teens-price").hide();
+              $(".gala-price").hide();
+            }
+          });
+      }, 1000);
+    },
+    false
+  );
+</script>
