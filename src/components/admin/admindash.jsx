@@ -14,6 +14,7 @@ import Admin from "./admin";
 import { useSelector, useDispatch } from "react-redux";
 import { setUsers } from "../handlers/redux/actions/usersActions";
 import { setRoles } from "../handlers/redux/actions/rolesActions";
+import screeningsTable from "../screenings/screeningsTable";
 
 
 function AdminDash({ userInfo, setLogged }) {
@@ -22,6 +23,11 @@ function AdminDash({ userInfo, setLogged }) {
   
   const navItems = [
     { title: "בית", path: "admin", comp: Admin, props: { userInfo } },
+    {
+      title: "אירועים",
+      path: "screenings",
+      comp: screeningsTable,
+    },
     { title: "צוות", path: "config", comp: Users },
     {
       title: "משקפות",

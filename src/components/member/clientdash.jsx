@@ -8,16 +8,25 @@ import {
 import Tools from "../handlers/tools";
 import Client from './client'
 import Navbar from "../htmlelements/navbar";
+import ScreeningsTable from "../screenings/screeningsTable";
 // import DonationsTable from "./donations/donationstable";
+
 
 function ClientDash({ userInfo, setLogged }) {
    const navItems = [
      { title: "בית", path: "client", comp: Client, props: { userInfo } },
-    //  {
-    //    title: "נדבות",
-    //    path: "donations",
-    //    comp: DonationsTable,
-    //  },
+     {
+       title: "אירועים",
+       path: "screenings",
+       comp: ScreeningsTable,
+       props: { userInfo },
+     },
+
+     //  {
+     //    title: "נדבות",
+     //    path: "donations",
+     //    comp: DonationsTable,
+     //  },
    ];
 
   return (

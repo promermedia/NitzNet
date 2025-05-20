@@ -27,6 +27,9 @@ const Tools = {
   formatDate: (d) => {
     return new Intl.DateTimeFormat("he-IL").format(new Date(d));
   },
+  formatTime: (t) => {
+    return t.split(':').slice(0, 2).join(':');
+  },
   passwordStrength: (password) => {
     const regex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+.])[A-Za-z\d!@#$%^&*()_+.]{2,20}$/;
